@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="ir.ui.employee" id="employee_id">
+        <field name="name">TeamManager.employee.tree</field>
+        <field name="model">TeamManager.Employee</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <!-- view content: <form>, <tree>, <graph>, ... -->
+            <tree string="Employees">
+                <field name="name"/>
+                <field name="role_ids"/>
+                <field name="team_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.project" id="project_id">
+        <field name="name">TeamManager.project.tree</field>
+        <field name="model">TeamManager.Project</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <!-- view content: <form>, <tree>, <graph>, ... -->
+            <tree string="Projects">
+                <field name="name"/>
+                <field name="team_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.team" id="team_id">
+        <field name="name">TeamManager.team.tree</field>
+        <field name="model">TeamManager.Team</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <!-- view content: <form>, <tree>, <graph>, ... -->
+            <tree string="Teams">
+                <field name="name"/>
+                <field name="size" />
+                <field name="employee_ids"/>
+                <field name="team_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.role" id="role_id">
+        <field name="name">TeamManager.role.tree</field>
+        <field name="model">TeamManager.Role</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <!-- view content: <form>, <tree>, <graph>, ... -->
+            <tree string="Employees">
+                <field name="name"/>
+                <field name="employee_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="TeamManger_root_menu"
+              name ="Team Manager"
+              web_icon=""
+              sequence="7"
+    />
+    <menuitem id="TeamManger_Team_menu"
+              name ="Teams"
+              web_icon=""
+              sequence="10"
+    />
+    <menuitem id="TeamManger_Employee_menu"
+              name ="Employees"
+              web_icon=""
+              sequence="10"
+    />
+    <menuitem id="TeamManger_Project_menu"
+              name ="Projects"
+              web_icon=""
+              sequence="10"
+    />
+</odoo>
